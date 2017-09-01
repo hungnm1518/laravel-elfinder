@@ -42,11 +42,13 @@ class ElfinderController extends Controller
     public function showTinyMCE4()
     {
         $type = Request::input('type');
-        $mimeTypes = implode(',',array_map(function($t){return "'".$t."'";}, explode(',',$type)));
+        $mimeTypes = implode(',', array_map(function ($t) {
+            return "'" . $t . "'";
+        }, explode(',', $type)));
         return $this->app['view']
             ->make($this->package . '::tinymce4')
             ->with($this->getViewVars())
-            ->with(compact('type','mimeTypes'));
+            ->with(compact('type', 'mimeTypes'));
     }
 
     public function showCKeditor4()
@@ -58,27 +60,33 @@ class ElfinderController extends Controller
 
     public function showPopup($input_id)
     {
+        $type = Request::input('type');
+        $mimeTypes = implode(',', array_map(function ($t) {
+            return "'" . $t . "'";
+        }, explode(',', $type)));
         return $this->app['view']
             ->make($this->package . '::standalonepopup')
             ->with($this->getViewVars())
-            ->with(compact('input_id'));
+            ->with(compact('input_id', 'type', 'mimeTypes'));
     }
 
     public function showFilePicker($input_id)
     {
         $type = Request::input('type');
-        $mimeTypes = implode(',',array_map(function($t){return "'".$t."'";}, explode(',',$type)));
+        $mimeTypes = implode(',', array_map(function ($t) {
+            return "'" . $t . "'";
+        }, explode(',', $type)));
         return $this->app['view']
             ->make($this->package . '::filepicker')
             ->with($this->getViewVars())
-            ->with(compact('input_id','type','mimeTypes'));
+            ->with(compact('input_id', 'type', 'mimeTypes'));
     }
 
     public function showConnector()
     {
         $roots = $this->app->config->get('elfinder.roots', []);
         if (empty($roots)) {
-            $dirs = (array) $this->app['config']->get('elfinder.dir', []);
+            $dirs = (array)$this->app['config']->get('elfinder.dir', []);
             foreach ($dirs as $dir) {
                 $roots[] = [
                     'driver' => 'LocalFileSystem', // driver for accessing file system (REQUIRED)
@@ -88,7 +96,7 @@ class ElfinderController extends Controller
                 ];
             }
 
-            $disks = (array) $this->app['config']->get('elfinder.disks', []);
+            $disks = (array)$this->app['config']->get('elfinder.disks', []);
             foreach ($disks as $key => $root) {
                 if (is_string($root)) {
                     $key = $root;
@@ -130,7 +138,7 @@ class ElfinderController extends Controller
     protected function getViewVars()
     {
         $dir = 'packages/barryvdh/' . $this->package;
-        $locale = str_replace("-",  "_", $this->app->config->get('app.locale'));
+        $locale = str_replace("-", "_", $this->app->config->get('app.locale'));
         if (!file_exists($this->app['path.public'] . "/$dir/js/i18n/elfinder.$locale.js")) {
             $locale = false;
         }
