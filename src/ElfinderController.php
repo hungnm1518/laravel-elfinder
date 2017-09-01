@@ -46,7 +46,7 @@ class ElfinderController extends Controller
         return $this->app['view']
             ->make($this->package . '::tinymce4')
             ->with($this->getViewVars())
-            ->with(compact('input_id','type','mimeTypes'));
+            ->with(compact('type','mimeTypes'));
     }
 
     public function showCKeditor4()
