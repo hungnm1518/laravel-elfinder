@@ -52,7 +52,7 @@ return array(
     |
     */
 
-    'access' => 'Barryvdh\Elfinder\Elfinder::checkAccess',
+    'access' => 'Hungnm\Elfinder\Elfinder::checkAccess',
 
     /*
     |--------------------------------------------------------------------------
