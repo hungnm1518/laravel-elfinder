@@ -1,5 +1,5 @@
 <?php
-namespace Barryvdh\Elfinder\Console;
+namespace Hungnm\Elfinder\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
