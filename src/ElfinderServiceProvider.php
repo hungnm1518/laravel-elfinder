@@ -1,4 +1,6 @@
-<?php namespace Barryvdh\Elfinder;
+<?php
+
+namespace Hungnm\Elfinder;
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
