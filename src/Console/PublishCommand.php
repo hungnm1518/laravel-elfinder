@@ -7,7 +7,6 @@ use Illuminate\Filesystem\Filesystem;
 /**
  * Publish the elFinder assets to the public directory
  *
- * @author Barry vd. Heuvel <barryvdh@gmail.com>
  */
 class PublishCommand extends Command {
 
