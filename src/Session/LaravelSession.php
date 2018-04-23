@@ -1,4 +1,6 @@
-<?php namespace Barryvdh\Elfinder\Session;
+<?php
+
+namespace Hungnm\Elfinder\Session;
 
 use elFinderSessionInterface;
 use Illuminate\Session\Store;
