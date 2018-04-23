@@ -48,7 +48,7 @@ class ElfinderServiceProvider extends ServiceProvider {
         ], 'views');
 
         if (!defined('ELFINDER_IMG_PARENT_URL')) {
-			define('ELFINDER_IMG_PARENT_URL', $this->app['url']->asset('packages/barryvdh/elfinder'));
+			define('ELFINDER_IMG_PARENT_URL', $this->app['url']->asset('packages/hungnm/elfinder'));
 		}
 
         $config = $this->app['config']->get('elfinder.route', []);
